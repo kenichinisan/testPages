@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Set serviceToken Cookie</title>
+</head>
+<body>
+    <h1>Set 'serviceToken' Cookie</h1>
+    <button onclick="setServiceTokenCookie()">Set 'serviceToken' Cookie</button>
+
+    <script>
+        function setServiceTokenCookie() {
+            var name = 'serviceToken';
+            var value = 'password';
+            var expiryDays = 7; // Cookie will expire after 7 days
+
+            var date = new Date();
+            date.setTime(date.getTime() + (expiryDays*24*60*60*1000));
+            var expires = "expires=" + date.toUTCString();
+
+            document.cookie = name + "=" + value + ";" + expires + ";path=/";
+            alert('Cookie set: ' + name + '=' + value);
+        }
+    </script>
+</body>
+</html>
